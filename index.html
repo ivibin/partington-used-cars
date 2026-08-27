@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Partington Used Cars — Wulguru, Townsville</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;500;600;700&family=Kalam:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#EDE6D6;
+    --paper-dark:#E2D8C2;
+    --ink:#211E1A;
+    --rust:#A8431F;
+    --rust-dark:#832F14;
+    --steel:#4B5459;
+    --sun:#E8A93A;
+    --white:#FAF7F0;
+    --line: rgba(33,30,26,0.16);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter', sans-serif;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important;}
+  }
+  h1,h2,h3,.display{
+    font-family:'Bebas Neue', sans-serif;
+    letter-spacing:0.02em;
+    line-height:0.92;
+    text-transform:uppercase;
+  }
+  .eyebrow{
+    font-family:'Oswald', sans-serif;
+    font-weight:600;
+    letter-spacing:0.22em;
+    text-transform:uppercase;
+    font-size:0.72rem;
+    color:var(--rust);
+  }
+  a{color:inherit;}
+  .wrap{max-width:1140px; margin:0 auto; padding:0 28px;}
+
+  /* corrugated texture strip */
+  .corrugated{
+    height:14px;
+    background: repeating-linear-gradient(90deg, var(--steel) 0px, var(--steel) 3px, #5c666c 3px, #5c666c 6px);
+    box-shadow: inset 0 3px 5px rgba(0,0,0,0.35), inset 0 -2px 3px rgba(255,255,255,0.08);
+  }
+
+  /* ---------- NAV ---------- */
+  nav{
+    position:sticky; top:0; z-index:50;
+    background:var(--ink);
+    border-bottom:3px solid var(--rust);
+  }
+  nav .wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    height:68px;
+  }
+  .brand{
+    font-family:'Bebas Neue', sans-serif;
+    font-size:1.5rem;
+    color:var(--white);
+    letter-spacing:0.04em;
+  }
+  .brand span{color:var(--sun);}
+  .navlinks{display:flex; gap:28px; font-family:'Oswald'; font-weight:500; font-size:0.88rem; text-transform:uppercase; letter-spacing:0.04em;}
+  .navlinks a{color:#D8D2C4; text-decoration:none; transition:color .15s;}
+  .navlinks a:hover, .navlinks a:focus-visible{color:var(--sun); outline:none;}
+  .navcall{
+    background:var(--rust); color:var(--white); font-family:'Oswald'; font-weight:600;
+    padding:9px 16px; border-radius:2px; text-decoration:none; font-size:0.85rem;
+    border:1px solid rgba(255,255,255,0.15);
+  }
+  .navcall:hover{background:var(--rust-dark);}
+  @media(max-width:760px){ .navlinks{display:none;} }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    background:
+      radial-gradient(ellipse at 15% 0%, rgba(168,67,31,0.16), transparent 55%),
+      var(--paper);
+    padding:76px 0 64px;
+    border-bottom:1px solid var(--line);
+  }
+  .hero .wrap{display:grid; grid-template-columns:1.15fr 0.85fr; gap:48px; align-items:center;}
+  @media(max-width:860px){ .hero .wrap{grid-template-columns:1fr;} }
+  .hero h1{font-size:clamp(3rem, 7vw, 5.4rem); color:var(--ink);}
+  .hero h1 em{font-style:normal; color:var(--rust);}
+  .hero p.lede{
+    font-family:'Oswald'; font-weight:400; font-size:1.15rem; color:#4a453d;
+    max-width:46ch; margin-top:18px; line-height:1.5;
+  }
+  .hero-ctas{display:flex; gap:14px; margin-top:32px; flex-wrap:wrap;}
+  .btn{
+    font-family:'Oswald'; font-weight:600; font-size:0.92rem; text-transform:uppercase;
+    letter-spacing:0.03em; padding:14px 26px; text-decoration:none; border-radius:2px;
+    display:inline-flex; align-items:center; gap:8px; transition:transform .15s, box-shadow .15s;
+  }
+  .btn-primary{background:var(--rust); color:var(--white); box-shadow:3px 3px 0 var(--ink);}
+  .btn-primary:hover{transform:translate(-2px,-2px); box-shadow:5px 5px 0 var(--ink);}
+  .btn-ghost{background:transparent; color:var(--ink); border:2px solid var(--ink);}
+  .btn-ghost:hover{background:var(--ink); color:var(--white);}
+
+  .rating-badge{
+    margin-top:34px; display:flex; align-items:center; gap:14px;
+    font-family:'Oswald';
+  }
+  .stars{color:var(--sun); font-size:1.15rem; letter-spacing:2px;}
+  .rating-badge .num{font-weight:700; font-size:1rem;}
+  .rating-badge .sub{font-size:0.82rem; color:#6b6459;}
+
+  /* signature: hero swing-tag */
+  .hero-tag{
+    position:relative;
+    background:var(--white);
+    border:1px solid var(--line);
+    padding:30px 26px 26px;
+    transform:rotate(3deg);
+    box-shadow:0 18px 34px -14px rgba(33,30,26,0.4);
+    max-width:340px; margin-left:auto;
+  }
+  .hero-tag::before{
+    content:"";
+    position:absolute; top:-14px; left:50%; transform:translateX(-50%);
+    width:26px; height:26px; border-radius:50%;
+    background:var(--paper); border:2px solid var(--steel);
+  }
+  .hero-tag .tag-label{font-family:'Oswald'; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; font-size:0.7rem; color:var(--steel);}
+  .hero-tag .tag-price{font-family:'Kalam', cursive; font-weight:700; font-size:2.6rem; color:var(--rust); line-height:1; margin-top:6px;}
+  .hero-tag .tag-note{font-family:'Kalam', cursive; font-size:1.05rem; margin-top:10px; color:var(--ink);}
+  .hero-tag .tag-loc{margin-top:18px; font-family:'Oswald'; font-size:0.78rem; color:#6b6459; border-top:1px dashed var(--line); padding-top:12px;}
+
+  /* ---------- TRUST STRIP ---------- */
+  .trust{
+    background:var(--ink); color:var(--white); padding:22px 0;
+  }
+  .trust .wrap{display:flex; justify-content:space-between; flex-wrap:wrap; gap:18px; font-family:'Oswald'; font-size:0.86rem; text-transform:uppercase; letter-spacing:0.04em; color:#cfc8ba;}
+  .trust b{color:var(--sun); font-weight:600;}
+
+  /* ---------- STOCK SECTION ---------- */
+  .stock{padding:84px 0 60px;}
+  .section-head{max-width:640px; margin-bottom:44px;}
+  .section-head h2{font-size:clamp(2.2rem,4.5vw,3.2rem); margin-top:8px;}
+  .section-head p{font-family:'Oswald'; color:#544f46; margin-top:12px; font-size:1.02rem;}
+
+  .stock-grid{
+    display:grid; grid-template-columns:repeat(3, 1fr); gap:30px 26px;
+  }
+  @media(max-width:860px){ .stock-grid{grid-template-columns:repeat(2,1fr);} }
+  @media(max-width:600px){ .stock-grid{grid-template-columns:1fr;} }
+
+  .car-card{
+    background:var(--white);
+    border:1px solid var(--line);
+    position:relative;
+    padding-top:8px;
+  }
+  .car-photo{
+    height:150px;
+    display:flex; align-items:center; justify-content:center;
+    position:relative; overflow:hidden;
+  }
+  .car-photo svg{width:78%; height:auto; position:relative; z-index:1;}
+  .car-card .body{padding:18px 18px 22px;}
+  .car-card .make{font-family:'Oswald'; font-weight:600; font-size:1.02rem; text-transform:uppercase;}
+  .car-card .desc{font-family:'Inter'; font-size:0.84rem; color:#6b6459; margin-top:4px;}
+
+  /* signature swing tag on each card */
+  .price-tag{
+    position:absolute; top:-16px; right:16px;
+    background:var(--sun);
+    color:var(--ink);
+    font-family:'Kalam', cursive; font-weight:700;
+    padding:8px 14px 7px;
+    transform:rotate(-4deg);
+    box-shadow:2px 4px 8px rgba(0,0,0,0.25);
+    font-size:1.2rem;
+    z-index:2;
+  }
+  .price-tag::after{
+    content:""; position:absolute; top:6px; left:-5px; width:9px; height:9px;
+    background:var(--paper); border-radius:50%; border:1px solid rgba(0,0,0,0.2);
+  }
+
+  .stock-cta{text-align:center; margin-top:44px;}
+  .stock-cta p{font-family:'Oswald'; color:#544f46; margin-bottom:14px;}
+
+  /* ---------- ABOUT / STORY ---------- */
+  .about{
+    background:var(--paper-dark);
+    padding:80px 0;
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+  }
+  .about .wrap{display:grid; grid-template-columns:0.9fr 1.1fr; gap:56px; align-items:start;}
+  @media(max-width:860px){ .about .wrap{grid-template-columns:1fr;} }
+  .about h2{font-size:clamp(2.2rem,4.5vw,3rem);}
+  .about-copy p{font-family:'Oswald'; font-weight:400; font-size:1.05rem; line-height:1.6; color:#3a352d; margin-bottom:16px;}
+  .about-copy p:last-child{margin-bottom:0;}
+
+  .review-stack{display:flex; flex-direction:column; gap:16px;}
+  .review-card{
+    background:var(--white); border-left:4px solid var(--rust); padding:18px 20px;
+    box-shadow:0 6px 14px -10px rgba(0,0,0,0.3);
+  }
+  .review-card .stars{font-size:0.95rem;}
+  .review-card p{font-family:'Inter'; font-size:0.92rem; margin-top:8px; color:#3a352d;}
+  .review-card .who{font-family:'Oswald'; font-weight:600; font-size:0.8rem; margin-top:10px; color:var(--steel); text-transform:uppercase; letter-spacing:0.03em;}
+
+  /* ---------- CONTACT ---------- */
+  .contact{padding:84px 0 90px;}
+  .contact-grid{display:grid; grid-template-columns:1fr 1fr; gap:0; border:1px solid var(--line);}
+  @media(max-width:760px){ .contact-grid{grid-template-columns:1fr;} }
+  .contact-panel{padding:44px 40px; background:var(--white);}
+  .contact-panel.dark{background:var(--ink); color:var(--white);}
+  .contact-panel h3{font-size:1.9rem; margin-bottom:18px;}
+  .contact-row{
+    display:flex; gap:14px; padding:14px 0; border-bottom:1px dashed var(--line);
+    font-family:'Oswald';
+  }
+  .contact-panel.dark .contact-row{border-bottom-color:rgba(255,255,255,0.15);}
+  .contact-row:last-child{border-bottom:none;}
+  .contact-row .k{font-weight:600; text-transform:uppercase; font-size:0.72rem; letter-spacing:0.08em; color:var(--rust); min-width:110px;}
+  .contact-panel.dark .contact-row .k{color:var(--sun);}
+  .contact-row .v{font-size:0.98rem;}
+  .contact-panel.dark a{text-decoration:none; color:var(--white); border-bottom:1px solid rgba(255,255,255,0.4);}
+  .contact-panel a{text-decoration:none; border-bottom:1px solid rgba(0,0,0,0.25);}
+
+  .contact-panel.dark .btn-primary{margin-top:26px; width:100%; justify-content:center;}
+  .tip{font-family:'Inter'; font-size:0.82rem; color:#a49d8d; margin-top:18px; line-height:1.5;}
+
+  footer{
+    background:var(--ink); color:#8f887a; text-align:center; padding:26px 0;
+    font-family:'Oswald'; font-size:0.8rem; letter-spacing:0.03em;
+  }
+  footer span{color:var(--sun);}
+
+  ::selection{background:var(--sun); color:var(--ink);}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="brand">PARTINGTON <span>USED CARS</span></div>
+    <div class="navlinks">
+      <a href="#stock">Current Stock</a>
+      <a href="#about">About</a>
+      <a href="#contact">Visit Us</a>
+    </div>
+    <a class="navcall" href="tel:0482708013">Call 0482 708 013</a>
+  </div>
+</nav>
+<div class="corrugated"></div>
+
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">Wulguru · Townsville · Family run</p>
+      <h1>Good Cars.<br>Honest <em>Prices.</em><br>No Games.</h1>
+      <p class="lede">Utes, wagons, family SUVs, tradie trucks, budget runabouts — Michael's been putting Townsville buyers into solid secondhand vehicles for years. Straight talk, fair pricing, and a yard full of stock that actually turns over.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="#stock">See What's On The Yard</a>
+        <a class="btn btn-ghost" href="tel:0482708013">Call Now</a>
+      </div>
+      <div class="rating-badge">
+        <span class="stars">★★★★★</span>
+        <span class="num">4.8 out of 5</span>
+        <span class="sub">— 9 buyer reviews</span>
+      </div>
+    </div>
+    <div class="hero-tag">
+      <div class="tag-label">On The Yard Today</div>
+      <div class="tag-price">$8,400</div>
+      <div class="tag-note">Runs mint, low k's</div>
+      <div class="tag-loc">364 Stuart Drive, Wulguru<br>Townsville QLD 4811</div>
+    </div>
+  </div>
+</section>
+
+<section class="trust">
+  <div class="wrap">
+    <div><b>4.8★ Rated</b> Highly Rated Seller Badge</div>
+    <div><b>9+</b> Vehicles usually in stock</div>
+    <div><b>Local</b> Family owned, Wulguru</div>
+    <div><b>0482 708 013</b> Call or message anytime</div>
+  </div>
+</section>
+
+<section class="stock" id="stock">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Current Stock</p>
+      <h2>What's On The Yard</h2>
+      <p>Stock moves fast — this is a snapshot of the kind of vehicles Michael's had through lately. Full live listings are on Facebook Marketplace, updated daily.</p>
+    </div>
+
+    <div class="stock-grid">
+
+      <div class="car-card">
+        <span class="price-tag">$12,800</span>
+        <div class="car-photo" style="background:linear-gradient(160deg,#4B5459,#2f3538);">
+          <svg viewBox="0 0 200 90" fill="none"><path d="M10 65 L30 40 L60 30 L140 30 L175 45 L190 60 L190 68 L10 68 Z" fill="#EDE6D6"/><circle cx="45" cy="70" r="12" fill="#211E1A"/><circle cx="150" cy="70" r="12" fill="#211E1A"/><rect x="62" y="34" width="70" height="16" fill="#4B5459"/></svg>
+        </div>
+        <div class="body">
+          <div class="make">Holden Ute — SS Pack</div>
+          <div class="desc">2011 · Manual · Good tyres, tidy tray</div>
+        </div>
+      </div>
+
+      <div class="car-card">
+        <span class="price-tag">$14,500</span>
+        <div class="car-photo" style="background:linear-gradient(160deg,#8b8478,#5c564c);">
+          <svg viewBox="0 0 200 90" fill="none"><rect x="20" y="28" width="160" height="34" rx="6" fill="#EDE6D6"/><circle cx="50" cy="70" r="12" fill="#211E1A"/><circle cx="150" cy="70" r="12" fill="#211E1A"/><rect x="30" y="34" width="140" height="16" fill="#8b8478"/></svg>
+        </div>
+        <div class="body">
+          <div class="make">Hyundai iMax People Mover</div>
+          <div class="desc">2013 · Auto · 8 seats, family ready</div>
+        </div>
+      </div>
+
+      <div class="car-card">
+        <span class="price-tag">$8,400</span>
+        <div class="car-photo" style="background:linear-gradient(160deg,#5a453a,#332721);">
+          <svg viewBox="0 0 200 90" fill="none"><path d="M15 62 Q20 35 60 32 L140 32 Q175 35 185 62 Z" fill="#EDE6D6"/><circle cx="48" cy="70" r="12" fill="#211E1A"/><circle cx="150" cy="70" r="12" fill="#211E1A"/></svg>
+        </div>
+        <div class="body">
+          <div class="make">Honda CR-V Wagon</div>
+          <div class="desc">2010 · Auto · Reliable family SUV</div>
+        </div>
+      </div>
+
+      <div class="car-card">
+        <span class="price-tag">$38,000</span>
+        <div class="car-photo" style="background:linear-gradient(160deg,#c9c2b2,#8b8478);">
+          <svg viewBox="0 0 200 90" fill="none"><path d="M12 62 Q18 32 58 30 L142 30 Q180 32 188 62 Z" fill="#211E1A"/><rect x="60" y="12" width="12" height="20" fill="#211E1A"/><circle cx="48" cy="70" r="12" fill="#211E1A"/><circle cx="150" cy="70" r="12" fill="#211E1A"/></svg>
+        </div>
+        <div class="body">
+          <div class="make">Toyota Landcruiser 200 Series</div>
+          <div class="desc">2009 · Snorkel + bull bar · Built for the bush</div>
+        </div>
+      </div>
+
+      <div class="car-card">
+        <span class="price-tag">$12,800</span>
+        <div class="car-photo" style="background:linear-gradient(160deg,#4B5459,#2f3538);">
+          <svg viewBox="0 0 200 90" fill="none"><path d="M10 65 L30 40 L60 30 L140 30 L175 45 L190 60 L190 68 L10 68 Z" fill="#c9c2b2"/><circle cx="45" cy="70" r="12" fill="#211E1A"/><circle cx="150" cy="70" r="12" fill="#211E1A"/></svg>
+        </div>
+        <div class="body">
+          <div class="make">Mitsubishi Outlander</div>
+          <div class="desc">2015 · Auto · Low k's, one owner</div>
+        </div>
+      </div>
+
+      <div class="car-card">
+        <span class="price-tag">$3,500</span>
+        <div class="car-photo" style="background:linear-gradient(160deg,#8b8478,#5c564c);">
+          <svg viewBox="0 0 200 90" fill="none"><rect x="24" y="30" width="152" height="32" rx="8" fill="#EDE6D6"/><circle cx="52" cy="70" r="12" fill="#211E1A"/><circle cx="148" cy="70" r="12" fill="#211E1A"/></svg>
+        </div>
+        <div class="body">
+          <div class="make">Ford Falcon Sedan</div>
+          <div class="desc">2008 · Auto · Cheap and cheerful runabout</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="stock-cta">
+      <p>These are just a taste — full stock changes daily on the yard.</p>
+      <a class="btn btn-primary" href="#contact">Get Full List</a>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">The Yard</p>
+      <h2>Run By Michael,<br>Not A Call Centre</h2>
+    </div>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:40px;">
+      <div class="about-copy">
+        <p>Partington Used Cars is a one-man operation out of Wulguru — Michael buys, preps and sells every vehicle on the yard himself. No sales team, no pressure, no upsell script. You call the number, you talk to the bloke who actually owns the car.</p>
+        <p>Been trading through Townsville since 2013, with a name for straight pricing and telling buyers the truth about what they're getting — good or bad.</p>
+      </div>
+      <div class="review-stack">
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <p>Strengths noted: Punctuality, Communication, Pricing, Item description.</p>
+          <div class="who">— David, verified buyer</div>
+        </div>
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <p>Strengths noted: Communication.</p>
+          <div class="who">— Gazza, verified buyer</div>
+        </div>
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <p>Strengths noted: Punctuality, Communication, Pricing.</p>
+          <div class="who">— Todd, verified buyer</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Get In Touch</p>
+      <h2>Come Have A Look</h2>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-panel">
+        <h3>Visit The Yard</h3>
+        <div class="contact-row"><div class="k">Address</div><div class="v">364 Stuart Drive<br>Wulguru QLD 4811<br>Townsville, Australia</div></div>
+        <div class="contact-row"><div class="k">Listings</div><div class="v">Facebook Marketplace<br>Search "Michael Abraham" (Townsville area)</div></div>
+        <div class="contact-row"><div class="k">Rating</div><div class="v">4.8★ · Highly Rated Seller Badge · 9 reviews</div></div>
+      </div>
+      <div class="contact-panel dark">
+        <h3>Call Or Message</h3>
+        <div class="contact-row"><div class="k">Phone</div><div class="v"><a href="tel:0482708013">0482 708 013</a></div></div>
+        <div class="contact-row"><div class="k">Best For</div><div class="v">Quick answers on price, availability &amp; trade-ins</div></div>
+        <a class="btn btn-primary" href="tel:0482708013">Call 0482 708 013</a>
+        <p class="tip">Tip: if you're browsing Marketplace, set your location to Townsville for the full, up-to-date list.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Partington Used Cars · 364 Stuart Drive, Wulguru QLD 4811 · <span>0482 708 013</span>
+</footer>
+
+</body>
+</html>
