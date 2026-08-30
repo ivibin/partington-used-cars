@@ -165,11 +165,12 @@
     padding-top:8px;
   }
   .car-photo{
-    height:150px;
+    height:190px;
     display:flex; align-items:center; justify-content:center;
     position:relative; overflow:hidden;
+    background:var(--steel);
   }
-  .car-photo svg{width:78%; height:auto; position:relative; z-index:1;}
+  .car-photo img{width:100%; height:100%; object-fit:cover; display:block;}
   .car-card .body{padding:18px 18px 22px;}
   .car-card .make{font-family:'Oswald'; font-weight:600; font-size:1.02rem; text-transform:uppercase;}
   .car-card .desc{font-family:'Inter'; font-size:0.84rem; color:#6b6459; margin-top:4px;}
@@ -209,12 +210,14 @@
 
   .review-stack{display:flex; flex-direction:column; gap:16px;}
   .review-card{
-    background:var(--white); border-left:4px solid var(--rust); padding:18px 20px;
+    background:var(--white); border-left:4px solid var(--rust); padding:22px 24px;
     box-shadow:0 6px 14px -10px rgba(0,0,0,0.3);
   }
-  .review-card .stars{font-size:0.95rem;}
-  .review-card p{font-family:'Inter'; font-size:0.92rem; margin-top:8px; color:#3a352d;}
-  .review-card .who{font-family:'Oswald'; font-weight:600; font-size:0.8rem; margin-top:10px; color:var(--steel); text-transform:uppercase; letter-spacing:0.03em;}
+  .review-card .stars{font-size:1.4rem; display:flex; align-items:baseline; gap:10px;}
+  .review-card .stars .ratingnum{font-family:'Oswald'; font-weight:700; font-size:1.05rem; color:var(--ink);}
+  .review-card .stars .ratingsub{font-family:'Inter'; font-weight:400; font-size:0.85rem; color:#6b6459;}
+  .review-card p{font-family:'Inter'; font-size:0.92rem; margin-top:12px; color:#3a352d; line-height:1.5;}
+  .review-card .who{font-family:'Oswald'; font-weight:600; font-size:0.78rem; margin-top:14px; color:var(--steel); text-transform:uppercase; letter-spacing:0.03em;}
 
   /* ---------- CONTACT ---------- */
   .contact{padding:84px 0 90px;}
@@ -301,74 +304,41 @@
     <div class="section-head">
       <p class="eyebrow">Current Stock</p>
       <h2>What's On The Yard</h2>
-      <p>Stock moves fast — this is a snapshot of the kind of vehicles Michael's had through lately. Full live listings are on Facebook Marketplace, updated daily.</p>
+      <p>A few of the vehicles actually on the yard right now. Full live listings are on Facebook Marketplace, updated daily.</p>
     </div>
 
     <div class="stock-grid">
 
       <div class="car-card">
-        <span class="price-tag">$12,800</span>
-        <div class="car-photo" style="background:linear-gradient(160deg,#4B5459,#2f3538);">
-          <svg viewBox="0 0 200 90" fill="none"><path d="M10 65 L30 40 L60 30 L140 30 L175 45 L190 60 L190 68 L10 68 Z" fill="#EDE6D6"/><circle cx="45" cy="70" r="12" fill="#211E1A"/><circle cx="150" cy="70" r="12" fill="#211E1A"/><rect x="62" y="34" width="70" height="16" fill="#4B5459"/></svg>
+        <span class="price-tag">$18,500</span>
+        <div class="car-photo">
+          <img src="images/2021MahindraPickup.jpg" alt="2021 Mahindra Pik-Up S6+ ute">
         </div>
         <div class="body">
-          <div class="make">Holden Ute — SS Pack</div>
-          <div class="desc">2011 · Manual · Good tyres, tidy tray</div>
+          <div class="make">Mahindra Pik-Up S6+</div>
+          <div class="desc">2021 · Manual · Diesel · 140,149km · Bull bar, snorkel &amp; tray</div>
         </div>
       </div>
 
       <div class="car-card">
-        <span class="price-tag">$14,500</span>
-        <div class="car-photo" style="background:linear-gradient(160deg,#8b8478,#5c564c);">
-          <svg viewBox="0 0 200 90" fill="none"><rect x="20" y="28" width="160" height="34" rx="6" fill="#EDE6D6"/><circle cx="50" cy="70" r="12" fill="#211E1A"/><circle cx="150" cy="70" r="12" fill="#211E1A"/><rect x="30" y="34" width="140" height="16" fill="#8b8478"/></svg>
+        <span class="price-tag">$8,200</span>
+        <div class="car-photo">
+          <img src="images/2009holdencommodore.jpg" alt="2009 Holden Commodore Sportwagon">
         </div>
         <div class="body">
-          <div class="make">Hyundai iMax People Mover</div>
-          <div class="desc">2013 · Auto · 8 seats, family ready</div>
+          <div class="make">Holden Commodore Sportwagon</div>
+          <div class="desc">2009 · Auto · Petrol · 224,378km · Spacious touring wagon</div>
         </div>
       </div>
 
       <div class="car-card">
-        <span class="price-tag">$8,400</span>
-        <div class="car-photo" style="background:linear-gradient(160deg,#5a453a,#332721);">
-          <svg viewBox="0 0 200 90" fill="none"><path d="M15 62 Q20 35 60 32 L140 32 Q175 35 185 62 Z" fill="#EDE6D6"/><circle cx="48" cy="70" r="12" fill="#211E1A"/><circle cx="150" cy="70" r="12" fill="#211E1A"/></svg>
+        <span class="price-tag">$12,200</span>
+        <div class="car-photo">
+          <img src="images/2011holdenute.jpg" alt="2011 Holden Commodore SV6 Thunder ute">
         </div>
         <div class="body">
-          <div class="make">Honda CR-V Wagon</div>
-          <div class="desc">2010 · Auto · Reliable family SUV</div>
-        </div>
-      </div>
-
-      <div class="car-card">
-        <span class="price-tag">$38,000</span>
-        <div class="car-photo" style="background:linear-gradient(160deg,#c9c2b2,#8b8478);">
-          <svg viewBox="0 0 200 90" fill="none"><path d="M12 62 Q18 32 58 30 L142 30 Q180 32 188 62 Z" fill="#211E1A"/><rect x="60" y="12" width="12" height="20" fill="#211E1A"/><circle cx="48" cy="70" r="12" fill="#211E1A"/><circle cx="150" cy="70" r="12" fill="#211E1A"/></svg>
-        </div>
-        <div class="body">
-          <div class="make">Toyota Landcruiser 200 Series</div>
-          <div class="desc">2009 · Snorkel + bull bar · Built for the bush</div>
-        </div>
-      </div>
-
-      <div class="car-card">
-        <span class="price-tag">$12,800</span>
-        <div class="car-photo" style="background:linear-gradient(160deg,#4B5459,#2f3538);">
-          <svg viewBox="0 0 200 90" fill="none"><path d="M10 65 L30 40 L60 30 L140 30 L175 45 L190 60 L190 68 L10 68 Z" fill="#c9c2b2"/><circle cx="45" cy="70" r="12" fill="#211E1A"/><circle cx="150" cy="70" r="12" fill="#211E1A"/></svg>
-        </div>
-        <div class="body">
-          <div class="make">Mitsubishi Outlander</div>
-          <div class="desc">2015 · Auto · Low k's, one owner</div>
-        </div>
-      </div>
-
-      <div class="car-card">
-        <span class="price-tag">$3,500</span>
-        <div class="car-photo" style="background:linear-gradient(160deg,#8b8478,#5c564c);">
-          <svg viewBox="0 0 200 90" fill="none"><rect x="24" y="30" width="152" height="32" rx="8" fill="#EDE6D6"/><circle cx="52" cy="70" r="12" fill="#211E1A"/><circle cx="148" cy="70" r="12" fill="#211E1A"/></svg>
-        </div>
-        <div class="body">
-          <div class="make">Ford Falcon Sedan</div>
-          <div class="desc">2008 · Auto · Cheap and cheerful runabout</div>
+          <div class="make">Holden Commodore SV6 Thunder</div>
+          <div class="desc">2011 · Auto · Petrol · 205,012km · 20" mags, tray tub &amp; cover</div>
         </div>
       </div>
 
@@ -390,23 +360,13 @@
     <div style="display:grid; grid-template-columns:1fr 1fr; gap:40px;">
       <div class="about-copy">
         <p>Partington Used Cars is a one-man operation out of Wulguru — Michael buys, preps and sells every vehicle on the yard himself. No sales team, no pressure, no upsell script. You call the number, you talk to the bloke who actually owns the car.</p>
-        <p>Been trading through Townsville since 2013, with a name for straight pricing and telling buyers the truth about what they're getting — good or bad.</p>
+        <p>Been trading through Townsville for decades, with a name for straight pricing and telling buyers the truth about what they're getting — good or bad.</p>
       </div>
       <div class="review-stack">
         <div class="review-card">
-          <div class="stars">★★★★★</div>
-          <p>Strengths noted: Punctuality, Communication, Pricing, Item description.</p>
-          <div class="who">— David, verified buyer</div>
-        </div>
-        <div class="review-card">
-          <div class="stars">★★★★★</div>
-          <p>Strengths noted: Communication.</p>
-          <div class="who">— Gazza, verified buyer</div>
-        </div>
-        <div class="review-card">
-          <div class="stars">★★★★★</div>
-          <p>Strengths noted: Punctuality, Communication, Pricing.</p>
-          <div class="who">— Todd, verified buyer</div>
+          <div class="stars">★★★★★ <span class="ratingnum">4.8</span> <span class="ratingsub">(9 ratings)</span></div>
+          <p>Verified Facebook Marketplace ratings — buyers most often highlight Michael's communication, fair pricing, accurate item descriptions and punctuality.</p>
+          <div class="who">— Facebook Marketplace, Highly Rated Seller</div>
         </div>
       </div>
     </div>
